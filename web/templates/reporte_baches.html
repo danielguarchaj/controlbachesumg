@@ -1,0 +1,169 @@
+{% extends 'global/base.html' %} {% load static %} {% block title %} Reporte de
+baches {% endblock %} {% block style %}
+<style></style>
+{% endblock %} {% block content %}
+
+<h4>REPORTE GENERAL DE BACHES</h4>
+
+<div class="row">
+  <div class="card">
+    <div class="card-body">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table id="order-listing" class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Departamento</th>
+                <th>Municipio</th>
+                <th>Nivel de daño</th>
+                <th>Coordenadas</th>
+                <th>Usuario que reporta</th>
+                <th>Estado</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Guatemala</td>
+                <td>Mixco</td>
+                <td>Medio</td>
+                <td>
+                  <a
+                    target="_blank"
+                    href="https://www.google.com/maps/place/14%C2%B051'28.5%22N+91%C2%B030'43.0%22W/@14.85707,-91.510996,16.5z/data=!4m6!3m5!1s0x0:0x0!7e2!8m2!3d14.8579206!4d-91.5119367"
+                    >Ver mapa</a
+                  >
+                </td>
+                <td>Victor Maldonado</td>
+                <td>
+                  <label class="badge badge-info"
+                    >En proceso de reparación</label
+                  >
+                </td>
+                <td>
+                  <a
+                    href="{% url 'web:detalle-bache' %}"
+                    target="_blank"
+                    class="btn btn-outline-primary"
+                    >Ver detalle</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Solola</td>
+                <td>Panajachel</td>
+                <td>Severo</td>
+                <td>
+                  <a
+                    target="_blank"
+                    href="https://www.google.com/maps/place/14%C2%B051'28.5%22N+91%C2%B030'43.0%22W/@14.85707,-91.510996,16.5z/data=!4m6!3m5!1s0x0:0x0!7e2!8m2!3d14.8579206!4d-91.5119367"
+                    >Ver mapa</a
+                  >
+                </td>
+                <td>Brayan Caceres</td>
+                <td>
+                  <label class="badge badge-danger">Pendiente</label>
+                </td>
+                <td>
+                  <a
+                    href="{% url 'web:detalle-bache' %}"
+                    target="_blank"
+                    class="btn btn-outline-primary"
+                    >Ver detalle</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Quiche</td>
+                <td>Chichicastenango</td>
+                <td>Severo</td>
+                <td>
+                  <a
+                    target="_blank"
+                    href="https://www.google.com/maps/place/14%C2%B051'28.5%22N+91%C2%B030'43.0%22W/@14.85707,-91.510996,16.5z/data=!4m6!3m5!1s0x0:0x0!7e2!8m2!3d14.8579206!4d-91.5119367"
+                    >Ver mapa</a
+                  >
+                </td>
+                <td>Maria Gomez</td>
+                <td>
+                  <label class="badge badge-danger">Pendiente</label>
+                </td>
+                <td>
+                  <a
+                    href="{% url 'web:detalle-bache' %}"
+                    target="_blank"
+                    class="btn btn-outline-primary"
+                    >Ver detalle</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Totonicapan</td>
+                <td>San Francisco El Alto</td>
+                <td>Regular</td>
+                <td>
+                  <a
+                    target="_blank"
+                    href="https://www.google.com/maps/place/14%C2%B051'28.5%22N+91%C2%B030'43.0%22W/@14.85707,-91.510996,16.5z/data=!4m6!3m5!1s0x0:0x0!7e2!8m2!3d14.8579206!4d-91.5119367"
+                    >Ver mapa</a
+                  >
+                </td>
+                <td>Valeria Villa</td>
+                <td>
+                  <label class="badge badge-success">Reparado</label>
+                </td>
+                <td>
+                  <a
+                    href="{% url 'web:detalle-bache' %}"
+                    target="_blank"
+                    class="btn btn-outline-primary"
+                    >Ver detalle</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block js %}
+<script>
+  (function ($) {
+    "use strict";
+    $(function () {
+      $("#order-listing").DataTable({
+        aLengthMenu: [
+          [5, 10, 15, -1],
+          [5, 10, 15, "All"],
+        ],
+        iDisplayLength: 10,
+        language: {
+          search: "",
+        },
+      });
+      $("#order-listing").each(function () {
+        var datatable = $(this);
+        // SEARCH - Add the placeholder for Search and Turn this into in-line form control
+        var search_input = datatable
+          .closest(".dataTables_wrapper")
+          .find("div[id$=_filter] input");
+        search_input.attr("placeholder", "Search");
+        search_input.removeClass("form-control-sm");
+        // LENGTH - Inline-Form control
+        var length_sel = datatable
+          .closest(".dataTables_wrapper")
+          .find("div[id$=_length] select");
+        length_sel.removeClass("form-control-sm");
+      });
+    });
+  })(jQuery);
+</script>
+{% endblock %}

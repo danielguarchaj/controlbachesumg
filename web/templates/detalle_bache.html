@@ -1,0 +1,64 @@
+{% extends 'global/base.html' %} {% load static %} {% block title %} Detalle del
+bache {% endblock %} {% block style %}
+<style></style>
+{% endblock %} {% block content %}
+
+<h1>VER DETALLE DEL BACHE</h1>
+
+<div class="col-12 grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <form class="form-sample">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Departamento</label>
+              <div class="col-sm-9">
+                <h1>Quetzaltenango</h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Municipio</label>
+              <h1>Salcaja</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Nivel de daño</label>
+              <div class="col-sm-9">
+                <h1>Regular</h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label"
+                >Coordenadas coordenadas</label
+              >
+              <div class="col-sm-9">
+                <a
+                  target="_blank"
+                  href="https://www.google.com/maps/place/14%C2%B051'28.5%22N+91%C2%B030'43.0%22W/@14.85707,-91.510996,16.5z/data=!4m6!3m5!1s0x0:0x0!7e2!8m2!3d14.8579206!4d-91.5119367"
+                >
+                  https://www.google.com/maps/place/14%C2%B051'28.5%22N+91%C2%B030'43.0%22W/@14.85707,-91.510996,16.5z/data=!4m6!3m5!1s0x0:0x0!7e2!8m2!3d14.8579206!4d-91.5119367
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <img src="{% static 'global/images/bachesedited.jpg' %}" alt="" />
+        </div>
+        <a href="/" class="btn btn-success m-2">Regresar</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block js %}
+<script></script>
+{% endblock %}
