@@ -1,0 +1,139 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>{% block title %}Iniciar Sesion{% endblock  %}</title>
+
+  <link rel="stylesheet" href="{% static 'global/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'global/css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'global/css/addons.css' %}">
+  <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'global/css/my_styles.css' %}">
+
+  {% block style %}
+  <style>
+  
+.auth .login-half-bg {
+    background: url(../../../static/global/images/bachesedited.jpg) !important;
+    background-size: 200%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: movimiento 20s infinite linear alternate;  
+}
+
+.capa-gradient{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: -webkit-linear-gradient(left, black, #0672d0);
+    opacity: 0.5;
+}
+
+@keyframes movimiento{
+    from{
+        background-position: bottom left;
+    }to{
+        background-position: top right;
+    }
+}
+
+  </style>
+  
+  {% endblock  %}
+</head>
+
+<body>
+
+{% block content %}
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+        <div class="row flex-grow">
+          <div class="col-lg-6 d-flex align-items-center justify-content-center">
+            <div class="auth-form-transparent text-left p-3">
+              <div class="brand-logo text-center">
+                <img src="../static/global/images/logoumg.png" alt="logo">
+              </div>
+              <h4 class="text-center">Bienvenido al Sistema de Control de Baches</h4>
+              <h6 class="text-center font-weight-light">Ingresa tus credenciales</h6>
+              <form method="POST" class="pt-3">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="username">Usuario</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text bg-transparent border-right-0">
+                        <i class="mdi mdi-account-outline text-primary"></i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="Usuario">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password">Contraseña</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text bg-transparent border-right-0">
+                        <i class="mdi mdi-lock-outline text-primary"></i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control form-control-lg border-left-0" id="password" name="password" placeholder="Password">                        
+                  </div>
+                </div>
+                <div class="my-3">
+                  <button type="submit" class="btn btn-block btn-outline-primary btn-lg font-weight-medium auth-form-btn">LOGIN</button>
+                </div>
+                {% if form.errors %}
+                <hr>
+                <p class="text-danger label label-danger">
+                  <b>El nombre de usuario o la contraseña son incorrectos</b>
+                  <b>Intente nuevamente</b>
+                </p>
+                <hr>
+                {% endif %}
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-6 login-half-bg d-flex flex-row">
+            <div class="capa-gradient"></div>
+            <p class="text-primary font-weight-medium text-center flex-grow align-self-end">Copyright © 2020. Contorl de baches.  All rights reserved.</p>
+        </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+{% endblock  %}
+
+  
+
+  <script src="{% static 'global/js/base.js' %}"></script>
+  <script src="{% static 'global/js/addons.js' %}"></script>
+  <script src="{% static 'global/plugins/js/axios.min.js' %}"></script>
+  <script src="{% static 'global/js/http.js' %}"></script>
+
+  <script src="{% static 'global/plugins/js/off-canvas.js' %} "></script>
+  <script src="{% static 'global/plugins/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'global/plugins/js/template.js' %}"></script>
+  <script src="{% static 'global/plugins/js/settings.js' %}"></script>
+  <script src="{% static 'global/plugins/js/formpickers.js' %}"></script>
+  <script src="{% static 'global/plugins/js/toastDemo.js' %}"></script>
+  <script src="{% static 'global/plugins/js/alerts.js' %}"></script>
+  <script src="{% static 'global/plugins/js/tooltips.js' %}"></script>
+  <script src="{% static 'global/plugins/js/popover.js' %}"></script>
+  <script src="{% static 'global/plugins/js/chart.js' %}"></script>
+  <script src="{% static 'global/plugins/js/select2.js' %}"></script>
+  {% block js %}{% endblock  %}
+
+</body>
+
+</html>

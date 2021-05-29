@@ -1,0 +1,46 @@
+{% load static %}
+<div class="horizontal-menu">
+  <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+    <div class="container">
+      <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+    
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo" href=""><img src="../../../static/global/images/logoumg.png" width="30" height="30" class="rounded-circle align-top" alt="logo"/><code>CONTROL DE BACHES</code></a>
+          <a class="navbar-brand brand-logo-mini" href=""><img src="../../../static/global/images/logoumg.png" style="max-width: 56%;" class="rounded-circle align-top" alt="logo"/></a>
+        </div>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="../../../static/global/images/profilepic.jpg" />
+              <span class="nav-profile-name">{{user.first_name}}  {{user.last_name}}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'web:logout' %}">
+                <i class="mdi mdi-logout text-primary"></i>
+                Cerrar Sesión
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-toggler-item-right d-lg-none">
+            <button class="navbar-toggler align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav class="bottom-navbar">
+    <div class="container">
+      <ul class="nav page-navigation">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'web:dashboard' %}">
+            <i class="mdi mdi-view-dashboard-outline menu-icon"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
